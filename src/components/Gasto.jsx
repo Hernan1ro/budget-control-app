@@ -27,20 +27,25 @@ const indexIconos = {
   salud: IconoSalud,
 };
 
-const leadingActions = () => {
-  console.log("editar...");
-};
-const trailingActions = () => {
-  console.log("eliminar...");
-};
+const leadingActions = () => (
+  <LeadingActions>
+    <SwipeAction onClick={() => console.log("editar")}>Editar</SwipeAction>
+  </LeadingActions>
+);
+
+const trailingActions = () => (
+  <TrailingActions>
+    <SwipeAction onClick={() => console.log("borrar")}>Eliminar</SwipeAction>
+  </TrailingActions>
+);
 
 const Gasto = ({ gasto }) => {
   const { categoria, nombre, cantidad, id, fecha } = gasto;
   return (
     <SwipeableList>
       <SwipeableListItem
-        leadingActions={leadingActions}
-        trailingActions={trailingActions}
+        leadingActions={leadingActions()}
+        trailingActions={trailingActions()}
       >
         <div className="gasto sombra">
           <div className="contenido-gasto">
