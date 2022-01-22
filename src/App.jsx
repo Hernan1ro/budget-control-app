@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Modal from "./components/Modal";
 import { generarId } from "./helpers";
@@ -11,6 +11,14 @@ function App() {
   const [modal, setModal] = useState(false);
   const [animarModal, setAnimarModal] = useState(false);
   const [gastos, setGastos] = useState([]);
+  const [gastoEditar, setGastoEditar] = useState({});
+
+  useEffect(() => {
+    if (Object.keys(gastoEditar).length > 0) {
+      console.log("Tiene algo editar");
+      handleNuevoGasto();
+    }
+  }, [gastoEditar]);
 
   const handleNuevoGasto = () => {
     setModal(true);
@@ -43,7 +51,7 @@ function App() {
       {isValidPresupuesto ? (
         <>
           <main>
-            <ListadoGastos gastos={gastos} />
+            <ListadoGastos gastos={gastos} setGastoEditar={setGastoEditar} />
           </main>
           <div className="nuevo-gasto">
             <img
