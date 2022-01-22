@@ -9,6 +9,7 @@ const ControlPresupuesto = ({ presupuesto, gastos }) => {
       (total, gasto) => gasto.cantidad + total,
       0
     );
+    setDisponible(presupuesto - totalGastado);
     setGastado(totalGastado);
   }, [gastos]);
 
