@@ -17,6 +17,10 @@ const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (cantidad <= 0) {
+      setMensaje("La cantidad debe ser mayor a $ 0");
+      return;
+    }
     if ([nombre, cantidad, categoria].includes("")) {
       setMensaje("Todos los campos son obligatorios");
       setTimeout(() => {
