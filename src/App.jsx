@@ -22,8 +22,9 @@ function App() {
 
   const guardarGasto = (gasto) => {
     gasto.id = generarId();
+    gasto.fecha = Date.now();
     setGastos([...gastos, gasto]);
-    console.log(gastos);
+    // Cerrar el modal
     setAnimarModal(false);
     setTimeout(() => {
       setModal(false);
