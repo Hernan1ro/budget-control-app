@@ -8,6 +8,7 @@ function App() {
   const [isValidPresupuesto, setIsvalidPresupuesto] = useState(false);
   const [modal, setModal] = useState(false);
   const [animarModal, setAnimarModal] = useState(false);
+  const [gastos, setGastos] = useState([]);
 
   const handleNuevoGasto = () => {
     setModal(true);
@@ -15,6 +16,11 @@ function App() {
     setTimeout(() => {
       setAnimarModal(true);
     }, 500);
+  };
+
+  const guardarGasto = (gasto) => {
+    setGastos([...gastos, gasto]);
+    console.log(gastos);
   };
 
   return (
@@ -36,6 +42,7 @@ function App() {
       ) : null}
       {modal && (
         <Modal
+          guardarGasto={guardarGasto}
           setModal={setModal}
           animarModal={animarModal}
           setAnimarModal={setAnimarModal}
