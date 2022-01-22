@@ -10,7 +10,7 @@ const NuevoPresupuesto = ({
 
   const handlePresupuesto = (e) => {
     e.preventDefault();
-    if (presupuesto < 0) {
+    if (presupuesto <= 0) {
       setMensaje("No es un presupueto válido");
       return;
     }
