@@ -9,6 +9,7 @@ A web app that helps you tu track and analyze your personal budget, built with R
 You need download the project, install npm and execute the open commands to see the project
 
 ## 🎨 Preview
+link: https://friendly-bhabha-bbe9e2.netlify.app/
 
 ## 👩🏻‍💻 Technologies
 
