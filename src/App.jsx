@@ -6,7 +6,9 @@ import IconoNuevoGasto from "./img/nuevo-gasto.svg";
 import ListadoGastos from "./components/ListadoGastos";
 
 function App() {
-  const [presupuesto, setPresupuesto] = useState(0);
+  const [presupuesto, setPresupuesto] = useState(
+    Number(localStorage.getItem("presupuesto")) ?? 0
+  );
   const [isValidPresupuesto, setIsvalidPresupuesto] = useState(false);
   const [modal, setModal] = useState(false);
   const [animarModal, setAnimarModal] = useState(false);
@@ -18,6 +20,17 @@ function App() {
       handleNuevoGasto();
     }
   }, [gastoEditar]);
+
+  useEffect(() => {
+    localStorage.setItem("presupuesto", presupuesto ?? 0);
+  }, [presupuesto]);
+
+  useEffect(() => {
+    const presupuestoLs = Number(localStorage.getItem("presupuesto")) ?? 0;
+    if (presupuestoLs > 0) {
+      setIsvalidPresupuesto(true);
+    }
+  }, []);
 
   const handleNuevoGasto = () => {
     setModal(true);
