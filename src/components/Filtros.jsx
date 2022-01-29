@@ -12,7 +12,7 @@ const Filtros = ({ filtro, setFiltro }) => {
             name=""
             id=""
           >
-            <option value="">Selecciona una categoria</option>
+            <option value="">Todas las categorias</option>
             <option value="ahorro">Ahorro</option>
             <option value="comida">comida</option>
             <option value="casa">Casa</option>
